@@ -1,8 +1,3 @@
-// ========== HELPERS ==========
-function getIndefiniteArticle(phrase) {
-  const firstLetter = phrase.trim().charAt(0).toLowerCase();
-  return ['a', 'e', 'i', 'o', 'u'].includes(firstLetter) ? 'an' : 'a';
-
 // ========== ARCHETYPE DEFINITIONS ==========
 const archetypes = {
     productHacker: {
