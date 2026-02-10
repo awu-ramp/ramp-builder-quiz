@@ -184,8 +184,8 @@ h1 {
 }
 
 .answer-btn:hover {
-  background: #1e1e1e;
-  border-color: #E4F222;
+  background: rgba(228, 242, 34, 0.08); /* Solar tint */
+  border-color: #E4F222;               /* Solar */
   color: #FFFFFF;
   transform: translateX(4px);
 }
