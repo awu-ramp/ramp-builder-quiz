@@ -155,7 +155,7 @@ const questions = [
       { text: "User-test a feature with real people and iterate on the design", archetype: "experienceCrafter" },
       { text: "Map out a messy business workflow and design an elegant automated version", archetype: "workflowAutomator" },
       { text: "Explore a third-party API's docs and build a proof-of-concept integration", archetype: "connectorBuilder" },
-      { text: "Profile the slowest endpoints and optimize them", archetype: "systemsSculptor" },
+      { text:s: "Profile the slowest endpoints and optimize them", archetype: "systemsSculptor" },
       { text: "Study a recent fraud case study and think about how you'd prevent it", archetype: "riskDetective" },
       { text: "Shadow a sales call and think about what tooling could help close the deal", archetype: "fieldEngineer" }
     ]
@@ -265,23 +265,13 @@ function renderQuestion() {
     const btn = document.createElement('button');
     btn.className = 'answer-btn';
     btn.textContent = answer.text;
-    btn.addEventListener('click', () => {
-      // visual selected state
-      document.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-
-      // score and advance
-      selectAnswer(answer.archetype);
-    });
+    btn.addEventListener('click', () => selectAnswer(answer.archetype));
     answersDiv.appendChild(btn);
   });
 }
 
 // ========== SELECT ANSWER ==========
 function selectAnswer(archetype) {
-  // ensure scores initialized
-  if (!scores || Object.keys(scores).length === 0) initScores();
-
   scores[archetype] += 2;
   currentQuestion++;
 
@@ -305,21 +295,17 @@ function showResults() {
   const article = getIndefiniteArticle(top.name);
 
   document.getElementById('result-emoji').textContent = top.emoji;
-  document.getElementById('result-title').innerHTML = `You're ${article} <span class="archetype-name">${top.name}</span>!`;
+  document.getElementById('result-title').innerHTML =
+    `You're ${article} <span class="archetype-name">${top.name}</span>!`;
   document.getElementById('result-tagline').textContent = top.tagline;
   document.getElementById('result-description').textContent = top.description;
   document.getElementById('result-enjoy').textContent = top.enjoy;
 
   const runnerUpDiv = document.getElementById('runner-up');
-  if (sorted[1][1] > 0) {
-    runnerUpDiv.innerHTML = `
-      <h3>Runner-up: ${archetypes[runnerUpKey].emoji} ${archetypes[runnerUpKey].name}</h3>
-      <p>${archetypes[runnerUpKey].tagline}</p>
-    `;
-    runnerUpDiv.style.display = 'block';
-  } else {
-    runnerUpDiv.style.display = 'none';
-  }
+  runnerUpDiv.innerHTML = `
+    <h3>Runner-up: ${runnerUp.emoji} ${runnerUp.name}</h3>
+    <p>${runnerUp.tagline}</p>
+  `;
 
   showScreen(resultsScreen);
 }
