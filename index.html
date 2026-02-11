@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What kind of Builder are you?</title>
+    <title>What Kind of Ramp Builder Are You?</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -67,19 +67,13 @@
       opacity: 0.9;
     }
 
-    .emoji-header {
-  font-size: 64px;
-  margin-bottom: 16px;
-  animation: float 3s ease-in-out infinite;
-}
-
-.builder-icon {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 16px;
-  animation: float 3s ease-in-out infinite;
-  image-rendering: pixelated;
-}
+    .builder-icon {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 16px;
+      animation: float 3s ease-in-out infinite;
+      image-rendering: pixelated;
+    }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -482,99 +476,101 @@
       background: #4ade80;
       color: #0a0a0a;
     }
-/* Email Section */
-.email-section {
-  max-width: 580px;
-  margin: 0 auto 28px auto;
-  text-align: center;
-}
 
-.email-label {
-  font-size: 0.9rem;
-  color: #AABCA3;
-  margin-bottom: 12px;
-  font-weight: 500;
-}
+    /* Email Section */
+    .email-section {
+      max-width: 580px;
+      margin: 0 auto 28px auto;
+      text-align: center;
+    }
 
-.email-form {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+    .email-label {
+      font-size: 0.9rem;
+      color: #AABCA3;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
 
-.email-input {
-  flex: 1;
-  min-width: 220px;
-  max-width: 340px;
-  padding: 14px 16px;
-  background: #141414;
-  border: 1px solid #3D3D3D;
-  border-radius: 12px;
-  color: #FFFFFF;
-  font-size: 0.95rem;
-  font-family: inherit;
-  outline: none;
-  transition: border-color 0.2s;
-}
+    .email-form {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-.email-input:focus {
-  border-color: #E4F222;
-}
+    .email-input {
+      flex: 1;
+      min-width: 220px;
+      max-width: 340px;
+      padding: 14px 16px;
+      background: #141414;
+      border: 1px solid #3D3D3D;
+      border-radius: 12px;
+      color: #FFFFFF;
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
 
-.email-input::placeholder {
-  color: #787868;
-}
+    .email-input:focus {
+      border-color: #E4F222;
+    }
 
-.btn-email {
-  background: #E4F222;
-  color: #0a0a0a;
-  border: none;
-  padding: 14px 24px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: inherit;
-  white-space: nowrap;
-}
+    .email-input::placeholder {
+      color: #787868;
+    }
 
-.btn-email:hover {
-  background: #DECC65;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(228, 242, 34, 0.25);
-}
+    .btn-email {
+      background: #E4F222;
+      color: #0a0a0a;
+      border: none;
+      padding: 14px 24px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      white-space: nowrap;
+    }
 
-.btn-email:active {
-  transform: translateY(0);
-}
+    .btn-email:hover {
+      background: #DECC65;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(228, 242, 34, 0.25);
+    }
 
-.btn-email.sent {
-  background: #4ade80;
-}
+    .btn-email:active {
+      transform: translateY(0);
+    }
 
-.btn-email:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
+    .btn-email.sent {
+      background: #4ade80;
+    }
 
-.email-status {
-  font-size: 0.8rem;
-  margin-top: 8px;
-  min-height: 20px;
-  transition: all 0.3s ease;
-}
+    .btn-email:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
 
-.email-status.success {
-  color: #4ade80;
-}
+    .email-status {
+      font-size: 0.8rem;
+      margin-top: 8px;
+      min-height: 20px;
+      transition: all 0.3s ease;
+    }
 
-.email-status.error {
-  color: #f87171;
-}
+    .email-status.success {
+      color: #4ade80;
+    }
+
+    .email-status.error {
+      color: #f87171;
+    }
+
     .final-disclaimer {
       font-size: 0.8rem;
       color: #787868;
@@ -643,29 +639,29 @@
       .key-hint {
         display: none;
       }
-.email-form {
-  flex-direction: column;
-  align-items: center;
-}
-
-.email-input {
-  width: 100%;
-  max-width: 100%;
-}
-
-.btn-email {
-  width: 100%;
-}
-      .emoji-header {
-        font-size: 48px;
-      }
 
       .logo {
         width: 90px;
       }
-.logo {
-  width: 90px;
-}
+
+      .builder-icon {
+        width: 72px;
+        height: 72px;
+      }
+
+      .email-form {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .email-input {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .btn-email {
+        width: 100%;
+      }
     }
     </style>
 </head>
@@ -674,7 +670,7 @@
         <!-- Landing Page -->
         <div id="landing" class="screen active">
             <div class="landing-content">
-                <img src="Ramp-Lockup-RGB-White.png" alt="Ramp" class="logo" />
+                <img src="ramp-logo.svg" alt="Ramp" class="logo" />
                 <img src="builder-icon.png" alt="Builder" class="builder-icon" />
                 <h1>What kind of Builder are you?</h1>
                 <p class="subtitle">Answer 10 quick questions to discover your engineering archetype and the kinds of problems you'd love solving at Ramp.</p>
@@ -705,30 +701,19 @@
                 <p id="result-enjoy" class="result-enjoy"></p>
                 <div class="score-breakdown" id="score-breakdown"></div>
                 <div class="runner-up" id="runner-up"></div>
-               <div class="results-actions">
-    <button id="copy-btn" class="btn-copy">📋 Copy My Result</button>
-    <button id="retake-btn" class="btn-secondary">Retake Quiz</button>
-</div>
-
-<div class="email-section" id="email-section">
-    <p class="email-label">Want a copy of your results?</p>
-    <div class="email-form">
-        <input type="email" id="email-input" class="email-input" placeholder="your.email@example.com" />
-        <button id="email-btn" class="btn-email">Send →</button>
-    </div>
-    <p class="email-status" id="email-status"></p>
-</div>
-
-<div class="email-section" id="email-section">
-    <p class="email-label">Want a copy of your results?</p>
-    <div class="email-form">
-        <input type="email" id="email-input" class="email-input" placeholder="your.email@example.com" />
-        <button id="email-btn" class="btn-email">Send →</button>
-    </div>
-    <p class="email-status" id="email-status"></p>
-</div>
+                <div class="results-actions">
+                    <button id="copy-btn" class="btn-copy">📋 Copy My Result</button>
+                    <button id="retake-btn" class="btn-secondary">Retake Quiz</button>
                 </div>
-                <p class="final-disclaimer">Remember: This quiz is a fun reflection tool, not a placement decision. Your recruiter and team will work with you to find the best fit!</p>
+                <div class="email-section" id="email-section">
+                    <p class="email-label">Want a copy of your results?</p>
+                    <div class="email-form">
+                        <input type="email" id="email-input" class="email-input" placeholder="your.email@example.com" />
+                        <button id="email-btn" class="btn-email">Send &rarr;</button>
+                    </div>
+                    <p class="email-status" id="email-status"></p>
+                </div>
+                <p class="final-disclaimer">Remember: this quiz is a fun reflection tool, not a placement decision. Your recruiter and team will work with you to find the best fit!</p>
             </div>
         </div>
     </div>
@@ -968,6 +953,9 @@
     var retakeBtn = document.getElementById("retake-btn");
     var backBtn = document.getElementById("back-btn");
     var copyBtn = document.getElementById("copy-btn");
+    var emailBtn = document.getElementById("email-btn");
+    var emailInput = document.getElementById("email-input");
+    var emailStatus = document.getElementById("email-status");
 
     var questionCount = document.getElementById("question-count");
     var questionText = document.getElementById("question-text");
@@ -1110,6 +1098,14 @@
         progressFill.style.width = "100%";
         window.scrollTo({ top: 0, behavior: "smooth" });
 
+        // Reset email section
+        emailInput.value = "";
+        emailStatus.textContent = "";
+        emailStatus.className = "email-status";
+        emailBtn.disabled = false;
+        emailBtn.textContent = "Send \u2192";
+        emailBtn.classList.remove("sent");
+
         var entries = [];
         var keys = Object.keys(scores);
         for (var i = 0; i < keys.length; i++) {
@@ -1141,8 +1137,8 @@
         showScreen(resultsScreen);
     }
 
-    // ========== COPY RESULTS ==========
-    copyBtn.addEventListener("click", function() {
+    // ========== BUILD RESULTS TEXT ==========
+    function buildResultsText() {
         var entries = [];
         var keys = Object.keys(scores);
         for (var i = 0; i < keys.length; i++) {
@@ -1153,11 +1149,27 @@
         var top = archetypes[entries[0][0]];
         var runnerUp = archetypes[entries[1][0]];
 
-        var text = "I took the 'What kind of Builder are you?' quiz!\n\n" +
-            top.emoji + " I\u2019m " + getIndefiniteArticle(top.name) + " " + top.name + "!\n" +
+        var text = top.emoji + " You\u2019re " + getIndefiniteArticle(top.name) + " " + top.name + "!\n\n" +
             top.tagline + "\n\n" +
+            top.description + "\n\n" +
+            top.enjoy + "\n\n" +
+            "---\n\n" +
             "Runner-up: " + runnerUp.emoji + " " + runnerUp.name + "\n" +
-            runnerUp.tagline;
+            runnerUp.tagline + "\n\n" +
+            "---\n\n" +
+            "Full breakdown:\n";
+
+        for (var i = 0; i < entries.length; i++) {
+            var arch = archetypes[entries[i][0]];
+            text += arch.emoji + " " + arch.name + ": " + entries[i][1] + " pts\n";
+        }
+
+        return text;
+    }
+
+    // ========== COPY RESULTS ==========
+    copyBtn.addEventListener("click", function() {
+        var text = "I took the 'What Kind of Ramp Builder Are You?' quiz!\n\n" + buildResultsText();
 
         navigator.clipboard.writeText(text).then(function() {
             copyBtn.textContent = "\u2705 Copied!";
@@ -1168,78 +1180,55 @@
             }, 2000);
         });
     });
-// ========== EMAIL RESULTS ==========
-var emailBtn = document.getElementById("email-btn");
-var emailInput = document.getElementById("email-input");
-var emailStatus = document.getElementById("email-status");
 
-emailBtn.addEventListener("click", function() {
-    var email = emailInput.value.trim();
+    // ========== EMAIL RESULTS ==========
+    emailBtn.addEventListener("click", function() {
+        var email = emailInput.value.trim();
 
-    // Basic validation
-    if (!email || email.indexOf("@") === -1 || email.indexOf(".") === -1) {
-        emailStatus.textContent = "Please enter a valid email address.";
-        emailStatus.className = "email-status error";
-        return;
-    }
+        if (!email || email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+            emailStatus.textContent = "Please enter a valid email address.";
+            emailStatus.className = "email-status error";
+            return;
+        }
 
-    // Disable button while sending
-    emailBtn.disabled = true;
-    emailBtn.textContent = "Sending...";
+        emailBtn.disabled = true;
+        emailBtn.textContent = "Sending...";
 
-    // Build results text
-    var entries = [];
-    var keys = Object.keys(scores);
-    for (var i = 0; i < keys.length; i++) {
-        entries.push([keys[i], scores[keys[i]]]);
-    }
-    entries.sort(function(a, b) { return b[1] - a[1]; });
+        var entries = [];
+        var keys = Object.keys(scores);
+        for (var i = 0; i < keys.length; i++) {
+            entries.push([keys[i], scores[keys[i]]]);
+        }
+        entries.sort(function(a, b) { return b[1] - a[1]; });
 
-    var top = archetypes[entries[0][0]];
-    var runnerUp = archetypes[entries[1][0]];
+        var top = archetypes[entries[0][0]];
 
-    var resultsText = top.emoji + " You\u2019re " + getIndefiniteArticle(top.name) + " " + top.name + "!\n\n" +
-        top.tagline + "\n\n" +
-        top.description + "\n\n" +
-        top.enjoy + "\n\n" +
-        "Runner-up: " + runnerUp.emoji + " " + runnerUp.name + "\n" +
-        runnerUp.tagline + "\n\n" +
-        "Full breakdown:\n";
+        var subject = encodeURIComponent("Your Ramp Builder Quiz Results: " + top.emoji + " " + top.name);
+        var body = encodeURIComponent(buildResultsText());
+        var mailtoLink = "mailto:" + encodeURIComponent(email) + "?subject=" + subject + "&body=" + body;
 
-    for (var i = 0; i < entries.length; i++) {
-        var arch = archetypes[entries[i][0]];
-        resultsText += arch.emoji + " " + arch.name + ": " + entries[i][1] + " pts\n";
-    }
-
-    // Use mailto: as simple email approach
-    var subject = encodeURIComponent("Your Ramp Builder Quiz Results: " + top.emoji + " " + top.name);
-    var body = encodeURIComponent(resultsText);
-    var mailtoLink = "mailto:" + encodeURIComponent(email) + "?subject=" + subject + "&body=" + body;
-
-    // Open mailto link
-    window.location.href = mailtoLink;
-
-    // Update UI
-    setTimeout(function() {
-        emailBtn.textContent = "\u2705 Opened!";
-        emailBtn.classList.add("sent");
-        emailStatus.textContent = "Your email client should open with your results. Just hit send!";
-        emailStatus.className = "email-status success";
+        window.location.href = mailtoLink;
 
         setTimeout(function() {
-            emailBtn.disabled = false;
-            emailBtn.textContent = "Send \u2192";
-            emailBtn.classList.remove("sent");
-        }, 4000);
-    }, 500);
-});
+            emailBtn.textContent = "\u2705 Opened!";
+            emailBtn.classList.add("sent");
+            emailStatus.textContent = "Your email client should open with your results. Just hit send!";
+            emailStatus.className = "email-status success";
 
-// Allow Enter key in email input
-emailInput.addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-        emailBtn.click();
-    }
-});
+            setTimeout(function() {
+                emailBtn.disabled = false;
+                emailBtn.textContent = "Send \u2192";
+                emailBtn.classList.remove("sent");
+            }, 4000);
+        }, 500);
+    });
+
+    emailInput.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") {
+            emailBtn.click();
+        }
+    });
+
     // ========== KEYBOARD NAVIGATION ==========
     document.addEventListener("keydown", function(e) {
         if (!quizScreen.classList.contains("active")) return;
