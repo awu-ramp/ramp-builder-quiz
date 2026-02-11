@@ -978,20 +978,20 @@
     };
 
     // ========== QUESTIONS ==========
- var questions = [
+var questions = [
         {
             text: "Welcome to Ramp! It\u2019s Day 1. What\u2019s the first thing you do?",
             answers: [
-                { text: "Pull up the metrics dashboard and look for patterns", archetype: "productHacker" },
-                { text: "Trace how a payment actually moves through the system", archetype: "moneyArchitect" },
+                { text: "Pull up the analytics dashboard and look for patterns", archetype: "productHacker" },
+                { text: "Trace how data flows through the core backend systems", archetype: "moneyArchitect" },
                 { text: "Shadow a user session to see where people get confused", archetype: "experienceCrafter" },
-                { text: "Map out every integration and how data flows between systems", archetype: "connectorBuilder" }
+                { text: "Map out every third-party service and how they connect", archetype: "connectorBuilder" }
             ]
         },
         {
             text: "Week 2. Your manager says: \"Pick any starter project.\" You grab:",
             answers: [
-                { text: "Automating a workflow that ops runs hundreds of times a day", archetype: "workflowAutomator" },
+                { text: "Automating a repetitive task that ops runs hundreds of times a day", archetype: "workflowAutomator" },
                 { text: "Fixing a flaky test suite that\u2019s slowing the whole team down", archetype: "systemsSculptor" },
                 { text: "Building a detection rule for a weird pattern you noticed", archetype: "riskDetective" },
                 { text: "Joining a call with an enterprise customer to scope their setup", archetype: "fieldEngineer" }
@@ -1000,8 +1000,8 @@
         {
             text: "Month 1. You\u2019re settling in. What\u2019s become your guilty pleasure?",
             answers: [
-                { text: "Watching real-time dashboards as conversion numbers climb", archetype: "productHacker" },
-                { text: "Digging into a gnarly payment reconciliation bug", archetype: "moneyArchitect" },
+                { text: "Watching real-time dashboards as key metrics climb", archetype: "productHacker" },
+                { text: "Digging into a complex data consistency bug across services", archetype: "moneyArchitect" },
                 { text: "Making a clunky UI feel effortless after a redesign", archetype: "experienceCrafter" },
                 { text: "Connecting two systems that have never talked to each other", archetype: "connectorBuilder" }
             ]
@@ -1009,7 +1009,7 @@
         {
             text: "Uh oh\u2014it\u2019s 2am and your phone buzzes. What gets you out of bed?",
             answers: [
-                { text: "\"The payment system is dropping transactions\"", archetype: "moneyArchitect" },
+                { text: "\"The core system is dropping requests and losing data\"", archetype: "moneyArchitect" },
                 { text: "\"Our biggest customer can\u2019t go live tomorrow without a fix\"", archetype: "fieldEngineer" },
                 { text: "\"Something weird\u2014accounts are behaving abnormally\"", archetype: "riskDetective" },
                 { text: "\"The build system is broken and 200 engineers are blocked\"", archetype: "systemsSculptor" }
@@ -1019,7 +1019,7 @@
             text: "Crisis handled \uD83D\uDCAA Your PM asks: \"What should we build next?\"",
             answers: [
                 { text: "\"There\u2019s a funnel we can fix\u2014the data is screaming at us\"", archetype: "productHacker" },
-                { text: "\"The invoicing workflow has 6 manual steps\u2014let\u2019s kill 5\"", archetype: "workflowAutomator" },
+                { text: "\"This workflow has 6 manual steps\u2014let\u2019s automate 5 of them\"", archetype: "workflowAutomator" },
                 { text: "\"Users are dropping off on this one screen\u2014I have ideas\"", archetype: "experienceCrafter" },
                 { text: "\"That customer keeps requesting X\u2014let me go talk to them\"", archetype: "fieldEngineer" }
             ]
@@ -1029,7 +1029,7 @@
             answers: [
                 { text: "An adapter that connects any two APIs automatically", archetype: "connectorBuilder" },
                 { text: "A bot that turns Slack messages into automated workflows", archetype: "workflowAutomator" },
-                { text: "A system that spots anomalies in real time across all transactions", archetype: "riskDetective" },
+                { text: "A system that spots anomalies across all activity in real time", archetype: "riskDetective" },
                 { text: "A dev tool that makes deploys 10x faster for every engineer", archetype: "systemsSculptor" }
             ]
         },
@@ -1039,13 +1039,13 @@
                 { text: "Users never have to manually enter data ever again", archetype: "experienceCrafter" },
                 { text: "Every system in the world has a perfect, documented API", archetype: "connectorBuilder" },
                 { text: "Anomalies get flagged instantly with zero false positives", archetype: "riskDetective" },
-                { text: "A growth experiment that could 2x signups overnight", archetype: "productHacker" }
+                { text: "An experiment engine that tells you what works overnight", archetype: "productHacker" }
             ]
         },
         {
             text: "Fast forward\u2014you\u2019re mentoring a new intern. They ask what you do:",
             answers: [
-                { text: "\"I build the pipes that move millions of dollars every day\"", archetype: "moneyArchitect" },
+                { text: "\"I build the core systems that handle our most critical data\"", archetype: "moneyArchitect" },
                 { text: "\"I make it so engineers never think about infrastructure\"", archetype: "systemsSculptor" },
                 { text: "\"I fly to our biggest customers and build whatever they need\"", archetype: "fieldEngineer" },
                 { text: "\"I automate entire business processes end-to-end\"", archetype: "workflowAutomator" }
@@ -1054,10 +1054,10 @@
         {
             text: "Your one-year Rampiversary! \uD83C\uDF82 Looking back, you\u2019re proudest that:",
             answers: [
-                { text: "An integration you built closed a $2M deal", archetype: "connectorBuilder" },
+                { text: "An integration you built directly helped close a huge deal", archetype: "connectorBuilder" },
                 { text: "Users don\u2019t even notice your feature\u2014it just works perfectly", archetype: "experienceCrafter" },
-                { text: "You turned a 4-hour process into a 30-second automation", archetype: "workflowAutomator" },
-                { text: "A system you built moves more money than most banks", archetype: "moneyArchitect" }
+                { text: "You turned a 4-hour manual process into a 30-second automation", archetype: "workflowAutomator" },
+                { text: "A system you built handles millions of critical operations daily", archetype: "moneyArchitect" }
             ]
         },
         {
