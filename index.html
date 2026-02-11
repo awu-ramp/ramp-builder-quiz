@@ -37,28 +37,28 @@
       --icon-filter: none;
     }
 
-    [data-theme="light"] {
-      --bg: #f5f5f0;
-      --bg-card: #ffffff;
-      --bg-hover: rgba(0, 0, 0, 0.04);
-      --bg-selected: rgba(45, 106, 79, 0.1);
-      --bg-bar: #e8e8e3;
+  [data-theme="light"] {
+      --bg: #e8e5de;
+      --bg-card: #f0ede6;
+      --bg-hover: rgba(0, 0, 0, 0.06);
+      --bg-selected: rgba(45, 106, 79, 0.12);
+      --bg-bar: #d6d3cc;
       --text-primary: #1a1a1a;
-      --text-secondary: #333333;
-      --text-muted: #555555;
-      --text-faint: #888888;
-      --border: #d4d4cc;
+      --text-secondary: #2a2a2a;
+      --text-muted: #4a4a4a;
+      --text-faint: #6a6a6a;
+      --border: #c4c1b9;
       --border-hover: #2d6a4f;
       --accent: #2d6a4f;
       --accent-hover: #1b4332;
       --accent-glow: rgba(45, 106, 79, 0.2);
-      --accent-tint: rgba(45, 106, 79, 0.06);
-      --accent-border: rgba(45, 106, 79, 0.2);
+      --accent-tint: rgba(45, 106, 79, 0.08);
+      --accent-border: rgba(45, 106, 79, 0.25);
       --success: #16a34a;
       --error: #dc2626;
-      --key-bg: #e8e8e3;
-      --key-text: #888888;
-      --bar-other: #d4d4cc;
+      --key-bg: #d6d3cc;
+      --key-text: #6a6a6a;
+      --bar-other: #c4c1b9;
       --logo-filter: brightness(0);
       --icon-filter: none;
     }
@@ -1302,7 +1302,7 @@
         runnerUpDiv.innerHTML =
             "<h3>Runner-up: " + runnerUp.emoji + " " + runnerUp.name + "</h3>" +
             "<p>" + runnerUp.tagline + "</p>";
-
+        renderStepDots();
         renderScoreBreakdown();
         showScreen(resultsScreen);
     }
