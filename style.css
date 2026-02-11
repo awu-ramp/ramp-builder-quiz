@@ -1,13 +1,1 @@
-.emoji-header {
-  font-size: 64px;
-  margin-bottom: 16px;
-  animation: float 3s ease-in-out infinite;
-}
 
-.builder-icon {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 16px;
-  animation: float 3s ease-in-out infinite;
-  image-rendering: pixelated;
-}
