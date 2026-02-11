@@ -387,7 +387,14 @@
       color: var(--text-primary);
       transform: translateX(4px);
     }
-
+@media (hover: none) {
+    .answer-btn:hover {
+        background: var(--bg-card);
+        border-color: var(--border);
+        color: var(--text-secondary);
+        transform: none;
+    }
+}
     .answer-btn.selected {
       background: var(--bg-selected);
       border-color: var(--border-hover);
