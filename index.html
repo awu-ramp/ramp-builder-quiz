@@ -867,13 +867,10 @@
 
     // Check for saved preference or system preference
     function getPreferredTheme() {
-        var saved = localStorage.getItem("ramp-quiz-theme");
-        if (saved) return saved;
-        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
-            return "light";
-        }
-        return "dark";
-    }
+    var saved = localStorage.getItem("ramp-quiz-theme");
+    if (saved) return saved;
+    return "dark";
+}
 
     function setTheme(theme) {
         htmlEl.setAttribute("data-theme", theme);
