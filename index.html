@@ -1298,8 +1298,8 @@
 
     // ========== COPY RESULTS ==========
     copyBtn.addEventListener("click", function() {
-        var text = "I took the 'What Kind of Ramp Builder Are You?' quiz!\n\n" + buildResultsText();
-
+    var text = "I took the Ramp Builder quiz!\n\n" + buildResultsText();
+        
         navigator.clipboard.writeText(text).then(function() {
             copyBtn.textContent = "\u2705 Copied!";
             copyBtn.classList.add("copied");
