@@ -51,7 +51,7 @@
       --bg-card: #f0ede6;
       --bg-hover: rgba(0, 0, 0, 0.06);
       --bg-selected: rgba(45, 106, 79, 0.12);
-      --bg-bar: #d6d3cc;
+      --bg-bar: #c2bfb7;
       --text-primary: #1a1a1a;
       --text-secondary: #2a2a2a;
       --text-muted: #4a4a4a;
@@ -67,7 +67,7 @@
       --error: #dc2626;
       --key-bg: #d6d3cc;
       --key-text: #6a6a6a;
-      --bar-other: #c4c1b9;
+      --bar-other: #a09d95;
       --logo-filter: brightness(0);
       --icon-filter: none;
     }
@@ -719,7 +719,7 @@
     /* =====================
        RESPONSIVE
     ===================== */
-    @media (max-width: 600px) {
+@media (max-width: 600px) {
       h1 {
         font-size: 1.7rem;
       }
@@ -730,6 +730,20 @@
 
       .container {
         padding: 16px;
+        padding-top: 0;
+        min-height: auto;
+      }
+
+      .landing-content {
+        padding-top: 60px;
+      }
+
+      .progress-bar {
+        margin-top: 48px;
+      }
+
+      .results-content {
+        padding-top: 48px;
       }
 
       .answer-btn {
@@ -757,15 +771,6 @@
       .score-label {
         width: 100px;
         font-size: 0.7rem;
-      }
-
-      .step-dots {
-        gap: 6px;
-      }
-
-      .step-dot {
-        width: 6px;
-        height: 6px;
       }
 
       .results-actions {
@@ -840,7 +845,6 @@
             <div class="progress-bar">
                 <div id="progress-fill" class="progress-fill"></div>
             </div>
-            <div class="step-dots" id="step-dots"></div>
             <button id="back-btn" class="btn-back">&larr; Back</button>
             <p class="question-count" id="question-count">Question 1 of 10</p>
             <h2 id="question-text" class="question-text"></h2>
@@ -1107,7 +1111,6 @@ var questions = [
     var questionText = document.getElementById("question-text");
     var answersDiv = document.getElementById("answers");
     var progressFill = document.getElementById("progress-fill");
-    var stepDotsDiv = document.getElementById("step-dots");
 
     // ========== NAVIGATION ==========
     function showScreen(screen) {
@@ -1116,18 +1119,6 @@ var questions = [
             screens[i].classList.remove("active");
         }
         screen.classList.add("active");
-    }
-
-    // ========== STEP DOTS ==========
-    function renderStepDots() {
-        stepDotsDiv.innerHTML = "";
-        for (var i = 0; i < questions.length; i++) {
-            var dot = document.createElement("div");
-            dot.className = "step-dot";
-            if (i < currentQuestion) dot.classList.add("completed");
-            if (i === currentQuestion) dot.classList.add("current");
-            stepDotsDiv.appendChild(dot);
-        }
     }
 
     // ========== RENDER QUESTION ==========
@@ -1141,8 +1132,6 @@ var questions = [
         progressFill.style.width = ((currentQuestion / questions.length) * 100) + "%";
 
         backBtn.style.display = currentQuestion > 0 ? "block" : "none";
-
-        renderStepDots();
 
         answersDiv.innerHTML = "";
         var shuffled = shuffleArray(q.answers);
@@ -1288,7 +1277,6 @@ var questions = [
             });
         }
 
-        renderStepDots();
         renderScoreBreakdown();
         showScreen(resultsScreen);
     }
