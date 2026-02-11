@@ -802,6 +802,13 @@
       }
     }
     </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WKH0PGHVXH');
+</script>
 </head>
 <body>
     <!-- Theme Toggle -->
@@ -1263,6 +1270,24 @@ var questions = [
             "<p>" + runnerUp.tagline + "</p>";
         renderStepDots();
         renderScoreBreakdown();
+        // Track quiz completion
+        if (typeof gtag === "function") {
+            gtag("event", "quiz_completed", {
+                event_category: "quiz",
+                event_label: top.name,
+                value: 1
+            });
+
+            gtag("event", "archetype_result", {
+                event_category: "archetype",
+                event_label: top.name
+            });
+
+            gtag("event", "runner_up_result", {
+                event_category: "archetype_runner_up",
+                event_label: runnerUp.name
+            });
+        }
         showScreen(resultsScreen);
     }
 
@@ -1325,6 +1350,12 @@ var questions = [
     startBtn.addEventListener("click", function() {
         initScores();
         currentQuestion = 0;
+        if (typeof gtag === "function") {
+            gtag("event", "quiz_started", {
+                event_category: "quiz",
+                value: 1
+            });
+        }
         showScreen(quizScreen);
         renderQuestion();
     });
