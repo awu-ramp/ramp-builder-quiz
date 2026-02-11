@@ -148,7 +148,13 @@
       display: block;
       animation: screenFadeIn 0.4s ease;
     }
+#quiz.active {
+      padding-top: 20px;
+    }
 
+    #results.active {
+      padding-top: 20px;
+    }
     @keyframes screenFadeIn {
       from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
@@ -729,26 +735,16 @@ body {
       .question-text {
         font-size: 1.2rem;
       }
+#quiz.active {
+        padding-top: 12px;
+      }
 
+      #results.active {
+        padding-top: 12px;
+      }
 .container {
         padding: 16px;
-        padding-top: 0;
-        min-height: auto;
-        align-items: flex-start;
       }
-
-      .landing-content {
-        padding-top: 60px;
-      }
-
-      .progress-bar {
-        margin-top: 48px;
-      }
-
-      .results-content {
-        padding-top: 48px;
-      }
-
       .answer-btn {
         padding: 18px 16px;
         font-size: 0.9rem;
