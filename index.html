@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ramp Match Quiz</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramp Match Quiz</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKH0PGHVXH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WKH0PGHVXH');
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -1271,25 +1284,25 @@ var questions = [
         renderStepDots();
         renderScoreBreakdown();
         // Track quiz completion
-        if (typeof gtag === "function") {
+     if (typeof gtag === "function") {
             gtag("event", "quiz_completed", {
                 event_category: "quiz",
                 event_label: top.name,
                 value: 1
             });
-
             gtag("event", "archetype_result", {
                 event_category: "archetype",
                 event_label: top.name
             });
-
             gtag("event", "runner_up_result", {
                 event_category: "archetype_runner_up",
                 event_label: runnerUp.name
             });
         }
+
+        renderStepDots();
+        renderScoreBreakdown();
         showScreen(resultsScreen);
-    }
 
     // ========== BUILD RESULTS TEXT ==========
     function buildResultsText() {
