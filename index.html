@@ -68,13 +68,38 @@
       opacity: 0.9;
     }
 
-    .builder-icon {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 16px;
-      animation: float 3s ease-in-out infinite;
-      image-rendering: pixelated;
-    }
+  .icon-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.builder-icon {
+  width: 100px;
+  height: 100px;
+  animation: float 3s ease-in-out infinite;
+  image-rendering: pixelated;
+}
+
+.sparkle {
+  font-size: 28px;
+  animation: sparkleFloat 2s ease-in-out infinite;
+}
+
+.sparkle-left {
+  animation-delay: 0s;
+}
+
+.sparkle-right {
+  animation-delay: 1s;
+}
+
+@keyframes sparkleFloat {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-6px) scale(1.15); opacity: 1; }
+}
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -645,10 +670,14 @@
         width: 90px;
       }
 
-      .builder-icon {
-        width: 72px;
-        height: 72px;
-      }
+   .builder-icon {
+  width: 72px;
+  height: 72px;
+}
+
+.sparkle {
+  font-size: 20px;
+}
 
       .email-form {
         flex-direction: column;
@@ -671,8 +700,11 @@
         <!-- Landing Page -->
         <div id="landing" class="screen active">
             <div class="landing-content">
-                <img src="Ramp-Lockup-RGB-White.png" alt="Ramp" class="logo" />
-                <img src="builder-icon.png" alt="Builder" class="builder-icon" />
+               <div class="icon-row">
+    <span class="sparkle sparkle-left">✨</span>
+    <img src="builder-icon.png" alt="Builder" class="builder-icon" />
+    <span class="sparkle sparkle-right">✨</span>
+</div>
                 <h1>What kind of Builder are you?</h1>
                 <p class="subtitle">Answer 10 quick questions to discover your engineering archetype and the kinds of problems you'd love solving at Ramp.</p>
                 <p class="disclaimer">This is just for fun and self-reflection — it doesn't determine your team placement!</p>
