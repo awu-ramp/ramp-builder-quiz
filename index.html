@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What kind of Ramp Builder are you?</title>
+    <title>What Kind of Ramp Builder Are You?</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -59,6 +59,12 @@
     ===================== */
     .landing-content {
       text-align: center;
+    }
+
+    .logo {
+      width: 120px;
+      margin-bottom: 24px;
+      opacity: 0.9;
     }
 
     .emoji-header {
@@ -178,7 +184,6 @@
       width: 0%;
     }
 
-    /* Step Dots */
     .step-dots {
       display: flex;
       justify-content: center;
@@ -542,6 +547,10 @@
       .emoji-header {
         font-size: 48px;
       }
+
+      .logo {
+        width: 90px;
+      }
     }
     </style>
 </head>
@@ -550,6 +559,7 @@
         <!-- Landing Page -->
         <div id="landing" class="screen active">
             <div class="landing-content">
+                <img src="ramp-logo.svg" alt="Ramp" class="logo" />
                 <div class="emoji-header">🛠️</div>
                 <h1>What Kind of Ramp Builder Are You?</h1>
                 <p class="subtitle">Answer 10 quick questions to discover your engineering archetype and the kinds of problems you'd love solving at Ramp.</p>
@@ -564,7 +574,7 @@
                 <div id="progress-fill" class="progress-fill"></div>
             </div>
             <div class="step-dots" id="step-dots"></div>
-            <button id="back-btn" class="btn-back">← Back</button>
+            <button id="back-btn" class="btn-back">&larr; Back</button>
             <p class="question-count" id="question-count">Question 1 of 10</p>
             <h2 id="question-text" class="question-text"></h2>
             <div id="answers" class="answers-grid"></div>
@@ -611,21 +621,448 @@
     var archetypes = {
         productHacker: {
             name: "Product Hacker",
-            emoji: "🧪",
-            tagline: "You're energized by experiments, metrics, and making things grow.",
-            description: "You love the loop: ship something, measure it, learn, iterate. You're drawn to problems where success is defined by a number going up\u2014conversion rates, activation, expansion. You'd thrive in an environment where data drives decisions, experiments are constant, and your work directly moves the needle on business growth. You enjoy building both user-facing experiences and the platforms that power experimentation at scale.",
-            enjoy: "You'd likely enjoy working on: growth experimentation, conversion optimization, data platforms, sales tooling, and product-led growth systems."
+            emoji: "\uD83E\uDDEA",
+            tagline: "You\u2019re energized by experiments, metrics, and making things grow.",
+            description: "You love the loop: ship something, measure it, learn, iterate. You\u2019re drawn to problems where success is defined by a number going up\u2014conversion rates, activation, expansion. You\u2019d thrive in an environment where data drives decisions, experiments are constant, and your work directly moves the needle on business growth. You enjoy building both user-facing experiences and the platforms that power experimentation at scale.",
+            enjoy: "You\u2019d likely enjoy working on: growth experimentation, conversion optimization, data platforms, sales tooling, and product-led growth systems."
         },
         moneyArchitect: {
             name: "Money Architect",
-            emoji: "💰",
+            emoji: "\uD83D\uDCB0",
             tagline: "You want to build the infrastructure that moves real money\u2014reliably, at scale.",
-            description: "You're drawn to systems where correctness isn't optional. You want to understand how payments work at a deep level\u2014card networks, ACH rails, settlement, international transfers. The idea of building financial infrastructure that processes millions of transactions excites you more than building UI. You appreciate high-stakes engineering where your systems handle billions of dollars and can't go down.",
-            enjoy: "You'd likely enjoy working on: payment platforms, card systems, financial infrastructure, international payments, stablecoin, and credit/risk decisioning systems."
+            description: "You\u2019re drawn to systems where correctness isn\u2019t optional. You want to understand how payments work at a deep level\u2014card networks, ACH rails, settlement, international transfers. The idea of building financial infrastructure that processes millions of transactions excites you more than building UI. You appreciate high-stakes engineering where your systems handle billions of dollars and can\u2019t go down.",
+            enjoy: "You\u2019d likely enjoy working on: payment platforms, card systems, financial infrastructure, international payments, stablecoin, and credit/risk decisioning systems."
         },
         experienceCrafter: {
             name: "Experience Crafter",
-            emoji: "✨",
+            emoji: "\u2728",
             tagline: "You care deeply about the people using what you build.",
-            description: "Whether it's an admin setting up company policies, an employee submitting a receipt, or someone booking a business trip\u2014you want to make their experience effortless. You think about UX at every level, from frontend polish to backend automation that eliminates busywork. You love learning what users struggle with and building solutions that feel invisible when they work perfectly.",
-            enjoy: "You'd likely enjoy working on: employee-facing tools, admin workflows, travel booking, spend
+            description: "Whether it\u2019s an admin setting up company policies, an employee submitting a receipt, or someone booking a business trip\u2014you want to make their experience effortless. You think about UX at every level, from frontend polish to backend automation that eliminates busywork. You love learning what users struggle with and building solutions that feel invisible when they work perfectly.",
+            enjoy: "You\u2019d likely enjoy working on: employee-facing tools, admin workflows, travel booking, spend management, and AI-powered automation that reduces user friction."
+        },
+        workflowAutomator: {
+            name: "Workflow Automator",
+            emoji: "\u2699\uFE0F",
+            tagline: "You see manual processes and can\u2019t help but automate them.",
+            description: "You love understanding how a business process works end-to-end\u2014then making it 10x faster. AP workflows, procurement approvals, vendor management, invoice processing\u2014these aren\u2019t boring to you; they\u2019re puzzles. You enjoy domain-heavy work where you become the expert, and you get satisfaction from turning something that took hours into something that takes seconds.",
+            enjoy: "You\u2019d likely enjoy working on: bill pay automation, procurement systems, vendor management, AP agents, and business process orchestration."
+        },
+        connectorBuilder: {
+            name: "Connector Builder",
+            emoji: "\uD83D\uDD17",
+            tagline: "You\u2019re the bridge between systems\u2014making things work together.",
+            description: "You find joy in taking two systems that don\u2019t speak the same language and making them communicate perfectly. You\u2019re comfortable navigating messy third-party APIs, legacy systems, and inconsistent data formats. You understand that integrations aren\u2019t glamorous, but they close deals, unlock customers, and make products dramatically more useful. You\u2019re a generalist who learns new domains quickly.",
+            enjoy: "You\u2019d likely enjoy working on: third-party integrations, accounting system connections, API platforms, and cross-product data synchronization."
+        },
+        systemsSculptor: {
+            name: "Systems Sculptor",
+            emoji: "\uD83C\uDFD7\uFE0F",
+            tagline: "You build the foundation that everyone else builds on.",
+            description: "Your idea of a great day is making a database query 100x faster, fixing a flaky CI pipeline, or designing a platform abstraction that saves every engineer hours per week. You think in terms of leverage\u2014work that multiplies the output of everyone around you. You care about developer experience, system reliability, and elegant infrastructure. You\u2019d rather build the tools than use them.",
+            enjoy: "You\u2019d likely enjoy working on: developer tooling, infrastructure, platform engineering, performance optimization, and internal systems that scale engineering velocity."
+        },
+        riskDetective: {
+            name: "Risk Detective",
+            emoji: "\uD83D\uDD0D",
+            tagline: "You protect the system\u2014combining data, models, and intuition.",
+            description: "You\u2019re drawn to adversarial problems: fraud rings, identity spoofing, suspicious patterns. You enjoy the intersection of engineering and data science\u2014building real-time systems that make decisions using ML models, deterministic rules, and behavioral signals. You care about security, trust, and building systems where a single wrong decision has real financial consequences. High stakes don\u2019t scare you; they motivate you.",
+            enjoy: "You\u2019d likely enjoy working on: fraud detection platforms, real-time decisioning systems, authentication, authorization, identity management, and ML-powered risk scoring."
+        },
+        fieldEngineer: {
+            name: "Field Engineer",
+            emoji: "\uD83D\uDE80",
+            tagline: "You thrive at the edge\u2014closest to customers, furthest from routine.",
+            description: "You want variety, autonomy, and direct customer impact. You\u2019re energized by hopping on a call with an enterprise customer, understanding their unique problem, and building a custom solution. You\u2019re comfortable with ambiguity and context-switching. You\u2019re part engineer, part consultant, part problem-solver. You\u2019d rather build something bespoke that wins a deal than work on the same product for months.",
+            enjoy: "You\u2019d likely enjoy working on: custom enterprise solutions, customer-facing implementations, demo environments, specialized integrations, and technical consulting."
+        }
+    };
+
+    // ========== QUESTIONS ==========
+    var questions = [
+        {
+            text: "It\u2019s your first week. What do you hope your onboarding project looks like?",
+            answers: [
+                { text: "Run an A/B test on a signup flow and measure conversion lift", archetype: "productHacker" },
+                { text: "Trace how a payment moves through the system from swipe to settlement", archetype: "moneyArchitect" },
+                { text: "Redesign a settings page that thousands of admins use daily", archetype: "experienceCrafter" },
+                { text: "Automate a manual approval workflow that ops does hundreds of times a day", archetype: "workflowAutomator" },
+                { text: "Build a new integration with a third-party accounting tool", archetype: "connectorBuilder" },
+                { text: "Improve the CI/CD pipeline so the whole team ships 20% faster", archetype: "systemsSculptor" },
+                { text: "Write a rule that blocks a new type of suspicious transaction in real time", archetype: "riskDetective" },
+                { text: "Hop on a call with an enterprise customer and scope a custom solution", archetype: "fieldEngineer" }
+            ]
+        },
+        {
+            text: "Which of these problems sounds most fun to debug?",
+            answers: [
+                { text: "Conversion dropped 3% after a deploy\u2014figure out which experiment variant caused it", archetype: "productHacker" },
+                { text: "A batch of international payments settled in the wrong currency", archetype: "moneyArchitect" },
+                { text: "Users are rage-clicking a button on mobile\u2014figure out why the UX is confusing", archetype: "experienceCrafter" },
+                { text: "A vendor\u2019s invoice was auto-paid twice due to a deduplication edge case", archetype: "workflowAutomator" },
+                { text: "A customer\u2019s QuickBooks sync broke after they upgraded their plan", archetype: "connectorBuilder" },
+                { text: "A database migration caused a cascade of slow queries across three services", archetype: "systemsSculptor" },
+                { text: "A fraud ring figured out how to bypass the sanctions screening check", archetype: "riskDetective" },
+                { text: "A Fortune 500 customer needs a data export format that doesn\u2019t exist yet", archetype: "fieldEngineer" }
+            ]
+        },
+        {
+            text: "What does \u2018impact\u2019 mean to you?",
+            answers: [
+                { text: "I moved a metric that directly affected revenue growth", archetype: "productHacker" },
+                { text: "Billions of dollars flowed through infrastructure I built", archetype: "moneyArchitect" },
+                { text: "Thousands of people used something I built and it just worked", archetype: "experienceCrafter" },
+                { text: "A finance team went from 4 hours of manual work to 10 minutes", archetype: "workflowAutomator" },
+                { text: "A deal closed because we shipped the integration the customer needed", archetype: "connectorBuilder" },
+                { text: "Every engineer at the company shipped faster because of my work", archetype: "systemsSculptor" },
+                { text: "A fraud attack was stopped before it cost real money", archetype: "riskDetective" },
+                { text: "I solved a problem no one else could because I understood the customer\u2019s world", archetype: "fieldEngineer" }
+            ]
+        },
+        {
+            text: "Pick a side project that sounds most appealing:",
+            answers: [
+                { text: "A tool that tracks which landing page variants convert best", archetype: "productHacker" },
+                { text: "A personal finance app that reconciles transactions across bank accounts", archetype: "moneyArchitect" },
+                { text: "A Chrome extension that simplifies a clunky web app\u2019s UI", archetype: "experienceCrafter" },
+                { text: "A bot that auto-files your expense reports from email receipts", archetype: "workflowAutomator" },
+                { text: "A universal API adapter that normalizes data across different SaaS tools", archetype: "connectorBuilder" },
+                { text: "A custom CLI that scaffolds projects, runs linters, and deploys in one command", archetype: "systemsSculptor" },
+                { text: "A browser extension that flags phishing sites using heuristic analysis", archetype: "riskDetective" },
+                { text: "A demo environment generator that spins up fake data for any customer scenario", archetype: "fieldEngineer" }
+            ]
+        },
+        {
+            text: "What kind of team environment do you thrive in?",
+            answers: [
+                { text: "Fast experiments, data reviews, and quick iterations\u2014ship and measure", archetype: "productHacker" },
+                { text: "High-stakes systems where correctness matters more than speed", archetype: "moneyArchitect" },
+                { text: "Cross-functional with designers and PMs, obsessing over user feedback", archetype: "experienceCrafter" },
+                { text: "Domain-heavy\u2014I want to become an expert in a business process", archetype: "workflowAutomator" },
+                { text: "Embedded across teams, contributing to different parts of the product", archetype: "connectorBuilder" },
+                { text: "Deep technical work with other platform engineers, focused on leverage", archetype: "systemsSculptor" },
+                { text: "Analytically rigorous, where I can combine data science with engineering", archetype: "riskDetective" },
+                { text: "Highly autonomous, working directly with customers, lots of ambiguity", archetype: "fieldEngineer" }
+            ]
+        },
+        {
+            text: "You have a free Friday to work on anything. What do you pick?",
+            answers: [
+                { text: "Analyze a funnel to find where users drop off and prototype a fix", archetype: "productHacker" },
+                { text: "Read about payment rails (ACH, SWIFT, card networks) and how settlement works", archetype: "moneyArchitect" },
+                { text: "User-test a feature with real people and iterate on the design", archetype: "experienceCrafter" },
+                { text: "Map out a messy business workflow and design an elegant automated version", archetype: "workflowAutomator" },
+                { text: "Explore a third-party API\u2019s docs and build a proof-of-concept integration", archetype: "connectorBuilder" },
+                { text: "Profile the slowest endpoints and optimize them", archetype: "systemsSculptor" },
+                { text: "Study a recent fraud case study and think about how you\u2019d prevent it", archetype: "riskDetective" },
+                { text: "Shadow a sales call and think about what tooling could help close the deal", archetype: "fieldEngineer" }
+            ]
+        },
+        {
+            text: "What kind of AI/ML work excites you most?",
+            answers: [
+                { text: "Personalized recommendations that increase product adoption", archetype: "productHacker" },
+                { text: "Models that assess creditworthiness or predict payment behavior", archetype: "moneyArchitect" },
+                { text: "LLMs that auto-categorize expenses so users never have to", archetype: "experienceCrafter" },
+                { text: "AI agents that negotiate vendor bills or auto-process invoices", archetype: "workflowAutomator" },
+                { text: "Using LLMs to normalize messy data from different third-party systems", archetype: "connectorBuilder" },
+                { text: "Building the platform layer that serves models to other teams reliably", archetype: "systemsSculptor" },
+                { text: "Real-time ML models that score every transaction for fraud", archetype: "riskDetective" },
+                { text: "AI-powered demo environments or customer-facing consulting tools", archetype: "fieldEngineer" }
+            ]
+        },
+        {
+            text: "Which headline would make you proudest?",
+            answers: [
+                { text: "\"Ramp\u2019s conversion rate hit an all-time high after growth experiment\"", archetype: "productHacker" },
+                { text: "\"Ramp processes $1B in payments with zero downtime\"", archetype: "moneyArchitect" },
+                { text: "\"Ramp named easiest expense tool to use by G2 users\"", archetype: "experienceCrafter" },
+                { text: "\"Ramp\u2019s AP automation saves customers 10,000 hours per month\"", archetype: "workflowAutomator" },
+                { text: "\"Ramp launches 50th integration, unlocking new market segment\"", archetype: "connectorBuilder" },
+                { text: "\"Ramp engineers ship 2x faster after internal platform overhaul\"", archetype: "systemsSculptor" },
+                { text: "\"Ramp stops $50M fraud ring with real-time detection system\"", archetype: "riskDetective" },
+                { text: "\"Fortune 100 company goes live with Ramp in record time\"", archetype: "fieldEngineer" }
+            ]
+        },
+        {
+            text: "What\u2019s your relationship with ambiguity?",
+            answers: [
+                { text: "I love it when there\u2019s a clear metric and I can experiment my way to the answer", archetype: "productHacker" },
+                { text: "I prefer well-defined correctness requirements\u2014money can\u2019t be wrong", archetype: "moneyArchitect" },
+                { text: "I like talking to users to reduce ambiguity, then iterating", archetype: "experienceCrafter" },
+                { text: "I like learning a complex domain deeply and then simplifying it", archetype: "workflowAutomator" },
+                { text: "I\u2019m comfortable navigating messy third-party systems and figuring things out", archetype: "connectorBuilder" },
+                { text: "I like structured technical problems with measurable before/after", archetype: "systemsSculptor" },
+                { text: "I thrive on detective work\u2014piecing together signals to find the truth", archetype: "riskDetective" },
+                { text: "Total ambiguity is my comfort zone\u2014give me a customer and I\u2019ll figure it out", archetype: "fieldEngineer" }
+            ]
+        },
+        {
+            text: "If you could mass-produce one superpower for your team, what would it be?",
+            answers: [
+                { text: "The ability to run experiments and know what\u2019s working instantly", archetype: "productHacker" },
+                { text: "Bulletproof reliability\u2014systems that never drop a transaction", archetype: "moneyArchitect" },
+                { text: "Perfect empathy\u2014knowing exactly what users need before they ask", archetype: "experienceCrafter" },
+                { text: "Process mastery\u2014turning any manual workflow into an automated one", archetype: "workflowAutomator" },
+                { text: "Universal compatibility\u2014connecting any system to any other system", archetype: "connectorBuilder" },
+                { text: "Infinite developer productivity\u2014every engineer\u2019s tools just work", archetype: "systemsSculptor" },
+                { text: "Omniscience\u2014seeing every suspicious pattern the moment it appears", archetype: "riskDetective" },
+                { text: "Shape-shifting\u2014adapting to whatever the customer needs right now", archetype: "fieldEngineer" }
+            ]
+        }
+    ];
+
+    // ========== STATE ==========
+    var currentQuestion = 0;
+    var scores = {};
+    var answerHistory = [];
+
+    function initScores() {
+        scores = {};
+        answerHistory = [];
+        var keys = Object.keys(archetypes);
+        for (var i = 0; i < keys.length; i++) {
+            scores[keys[i]] = 0;
+        }
+    }
+
+    // ========== DOM ELEMENTS ==========
+    var landingScreen = document.getElementById("landing");
+    var quizScreen = document.getElementById("quiz");
+    var resultsScreen = document.getElementById("results");
+
+    var startBtn = document.getElementById("start-btn");
+    var retakeBtn = document.getElementById("retake-btn");
+    var backBtn = document.getElementById("back-btn");
+    var copyBtn = document.getElementById("copy-btn");
+
+    var questionCount = document.getElementById("question-count");
+    var questionText = document.getElementById("question-text");
+    var answersDiv = document.getElementById("answers");
+    var progressFill = document.getElementById("progress-fill");
+    var stepDotsDiv = document.getElementById("step-dots");
+
+    // ========== NAVIGATION ==========
+    function showScreen(screen) {
+        var screens = document.querySelectorAll(".screen");
+        for (var i = 0; i < screens.length; i++) {
+            screens[i].classList.remove("active");
+        }
+        screen.classList.add("active");
+    }
+
+    // ========== STEP DOTS ==========
+    function renderStepDots() {
+        stepDotsDiv.innerHTML = "";
+        for (var i = 0; i < questions.length; i++) {
+            var dot = document.createElement("div");
+            dot.className = "step-dot";
+            if (i < currentQuestion) dot.classList.add("completed");
+            if (i === currentQuestion) dot.classList.add("current");
+            stepDotsDiv.appendChild(dot);
+        }
+    }
+
+    // ========== RENDER QUESTION ==========
+    function renderQuestion() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        var q = questions[currentQuestion];
+
+        questionCount.textContent = "Question " + (currentQuestion + 1) + " of " + questions.length;
+        questionText.textContent = q.text;
+        progressFill.style.width = ((currentQuestion / questions.length) * 100) + "%";
+
+        backBtn.style.display = currentQuestion > 0 ? "block" : "none";
+
+        renderStepDots();
+
+        answersDiv.innerHTML = "";
+        var shuffled = shuffleArray(q.answers);
+        for (var i = 0; i < shuffled.length; i++) {
+            (function(answer, index) {
+                var btn = document.createElement("button");
+                btn.className = "answer-btn";
+                btn.innerHTML = '<span class="key-hint">' + (index + 1) + '</span> ' + answer.text;
+                btn.addEventListener("click", function(e) {
+                    handleAnswerClick(e.currentTarget, answer.archetype);
+                });
+                answersDiv.appendChild(btn);
+            })(shuffled[i], i);
+        }
+    }
+
+    // ========== HANDLE ANSWER CLICK ==========
+    function handleAnswerClick(clickedBtn, archetype) {
+        var allBtns = document.querySelectorAll(".answer-btn");
+        for (var i = 0; i < allBtns.length; i++) {
+            allBtns[i].classList.add("disabled");
+        }
+
+        clickedBtn.classList.remove("disabled");
+        clickedBtn.classList.add("selected");
+
+        scores[archetype] += 2;
+        answerHistory.push(archetype);
+        currentQuestion++;
+
+        setTimeout(function() {
+            if (currentQuestion < questions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }, 350);
+    }
+
+    // ========== BACK BUTTON ==========
+    backBtn.addEventListener("click", function() {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            var lastArchetype = answerHistory.pop();
+            scores[lastArchetype] -= 2;
+            renderQuestion();
+        }
+    });
+
+    // ========== SCORE BREAKDOWN ==========
+    function renderScoreBreakdown() {
+        var container = document.getElementById("score-breakdown");
+        var entries = [];
+        var keys = Object.keys(scores);
+        for (var i = 0; i < keys.length; i++) {
+            entries.push([keys[i], scores[keys[i]]]);
+        }
+        entries.sort(function(a, b) { return b[1] - a[1]; });
+
+        var maxScore = entries[0][1] || 1;
+
+        container.innerHTML = "<h3>Your Affinity Breakdown</h3>";
+
+        for (var i = 0; i < entries.length; i++) {
+            var key = entries[i][0];
+            var score = entries[i][1];
+            var arch = archetypes[key];
+            var pct = Math.round((score / maxScore) * 100);
+
+            var row = document.createElement("div");
+            row.className = "score-row";
+
+            var label = document.createElement("span");
+            label.className = "score-label";
+            label.textContent = arch.emoji + " " + arch.name;
+
+            var barBg = document.createElement("div");
+            barBg.className = "score-bar-bg";
+
+            var barFill = document.createElement("div");
+            barFill.className = "score-bar-fill " + (i === 0 ? "top" : "other");
+            barFill.style.width = "0%";
+
+            barBg.appendChild(barFill);
+            row.appendChild(label);
+            row.appendChild(barBg);
+            container.appendChild(row);
+
+            (function(fill, targetPct) {
+                setTimeout(function() {
+                    fill.style.width = targetPct + "%";
+                }, 100 + (i * 80));
+            })(barFill, pct);
+        }
+    }
+
+    // ========== SHOW RESULTS ==========
+    function showResults() {
+        progressFill.style.width = "100%";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        var entries = [];
+        var keys = Object.keys(scores);
+        for (var i = 0; i < keys.length; i++) {
+            entries.push([keys[i], scores[keys[i]]]);
+        }
+        entries.sort(function(a, b) { return b[1] - a[1]; });
+
+        var topKey = entries[0][0];
+        var runnerUpKey = entries[1][0];
+
+        var top = archetypes[topKey];
+        var runnerUp = archetypes[runnerUpKey];
+
+        var article = getIndefiniteArticle(top.name);
+
+        document.getElementById("result-emoji").textContent = top.emoji;
+        document.getElementById("result-title").innerHTML =
+            "You\u2019re " + article + ' <span class="archetype-name">' + top.name + "</span>!";
+        document.getElementById("result-tagline").textContent = top.tagline;
+        document.getElementById("result-description").textContent = top.description;
+        document.getElementById("result-enjoy").textContent = top.enjoy;
+
+        var runnerUpDiv = document.getElementById("runner-up");
+        runnerUpDiv.innerHTML =
+            "<h3>Runner-up: " + runnerUp.emoji + " " + runnerUp.name + "</h3>" +
+            "<p>" + runnerUp.tagline + "</p>";
+
+        renderScoreBreakdown();
+        showScreen(resultsScreen);
+    }
+
+    // ========== COPY RESULTS ==========
+    copyBtn.addEventListener("click", function() {
+        var entries = [];
+        var keys = Object.keys(scores);
+        for (var i = 0; i < keys.length; i++) {
+            entries.push([keys[i], scores[keys[i]]]);
+        }
+        entries.sort(function(a, b) { return b[1] - a[1]; });
+
+        var top = archetypes[entries[0][0]];
+        var runnerUp = archetypes[entries[1][0]];
+
+        var text = "I took the 'What Kind of Ramp Builder Are You?' quiz!\n\n" +
+            top.emoji + " I\u2019m " + getIndefiniteArticle(top.name) + " " + top.name + "!\n" +
+            top.tagline + "\n\n" +
+            "Runner-up: " + runnerUp.emoji + " " + runnerUp.name + "\n" +
+            runnerUp.tagline;
+
+        navigator.clipboard.writeText(text).then(function() {
+            copyBtn.textContent = "\u2705 Copied!";
+            copyBtn.classList.add("copied");
+            setTimeout(function() {
+                copyBtn.textContent = "\uD83D\uDCCB Copy My Result";
+                copyBtn.classList.remove("copied");
+            }, 2000);
+        });
+    });
+
+    // ========== KEYBOARD NAVIGATION ==========
+    document.addEventListener("keydown", function(e) {
+        if (!quizScreen.classList.contains("active")) return;
+
+        var key = parseInt(e.key);
+        var buttons = document.querySelectorAll(".answer-btn:not(.disabled)");
+        if (key >= 1 && key <= buttons.length) {
+            buttons[key - 1].click();
+        }
+    });
+
+    // ========== START ==========
+    startBtn.addEventListener("click", function() {
+        initScores();
+        currentQuestion = 0;
+        showScreen(quizScreen);
+        renderQuestion();
+    });
+
+    // ========== RETAKE ==========
+    retakeBtn.addEventListener("click", function() {
+        initScores();
+        currentQuestion = 0;
+        showScreen(landingScreen);
+    });
+
+    // ========== INITIALIZE ==========
+    showScreen(landingScreen);
+    </script>
+</body>
+</html>
