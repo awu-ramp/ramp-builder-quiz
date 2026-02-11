@@ -841,12 +841,9 @@
                 <p id="result-enjoy" class="result-enjoy"></p>
                 <div class="score-breakdown" id="score-breakdown"></div>
                 <div class="runner-up" id="runner-up"></div>
-                <div class="results-actions">
+              <div class="results-actions">
                     <button id="copy-btn" class="btn-copy">📋 Copy My Result</button>
                     <button id="retake-btn" class="btn-secondary">Retake Quiz</button>
-                </div>
-               <!-- Email removed — use Copy button instead -->
-                    <p class="email-status" id="email-status"></p>
                 </div>
                 <p class="final-disclaimer">Remember: This quiz is a fun reflection tool, not a placement decision. Your recruiter and team will work with you to find the best fit!</p>
             </div>
@@ -1271,13 +1268,6 @@
     function showResults() {
         progressFill.style.width = "100%";
         window.scrollTo({ top: 0, behavior: "smooth" });
-
-        emailInput.value = "";
-        emailStatus.textContent = "";
-        emailStatus.className = "email-status";
-        emailBtn.disabled = false;
-        emailBtn.innerHTML = "Send &rarr;";
-        emailBtn.classList.remove("sent");
 
         var entries = [];
         var keys = Object.keys(scores);
