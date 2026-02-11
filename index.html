@@ -844,12 +844,7 @@
                     <button id="copy-btn" class="btn-copy">📋 Copy My Result</button>
                     <button id="retake-btn" class="btn-secondary">Retake Quiz</button>
                 </div>
-                <div class="email-section" id="email-section">
-                    <p class="email-label">Want a copy of your results?</p>
-                    <div class="email-form">
-                        <input type="email" id="email-input" class="email-input" placeholder="your.email@example.com" />
-                        <button id="email-btn" class="btn-email">Send &rarr;</button>
-                    </div>
+               <!-- Email removed — use Copy button instead -->
                     <p class="email-status" id="email-status"></p>
                 </div>
                 <p class="final-disclaimer">Remember: This quiz is a fun reflection tool, not a placement decision. Your recruiter and team will work with you to find the best fit!</p>
@@ -1134,9 +1129,6 @@
     var retakeBtn = document.getElementById("retake-btn");
     var backBtn = document.getElementById("back-btn");
     var copyBtn = document.getElementById("copy-btn");
-    var emailBtn = document.getElementById("email-btn");
-    var emailInput = document.getElementById("email-input");
-    var emailStatus = document.getElementById("email-status");
 
     var questionCount = document.getElementById("question-count");
     var questionText = document.getElementById("question-text");
@@ -1359,54 +1351,6 @@
                 copyBtn.classList.remove("copied");
             }, 2000);
         });
-    });
-
-    // ========== EMAIL RESULTS ==========
-    emailBtn.addEventListener("click", function() {
-        var email = emailInput.value.trim();
-
-        if (!email || email.indexOf("@") === -1 || email.indexOf(".") === -1) {
-            emailStatus.textContent = "Please enter a valid email address.";
-            emailStatus.className = "email-status error";
-            return;
-        }
-
-        emailBtn.disabled = true;
-        emailBtn.textContent = "Sending...";
-
-        var entries = [];
-        var keys = Object.keys(scores);
-        for (var i = 0; i < keys.length; i++) {
-            entries.push([keys[i], scores[keys[i]]]);
-        }
-        entries.sort(function(a, b) { return b[1] - a[1]; });
-
-        var top = archetypes[entries[0][0]];
-
-        var subject = encodeURIComponent("Your Ramp Builder Quiz Results: " + top.emoji + " " + top.name);
-        var body = encodeURIComponent(buildResultsText());
-        var mailtoLink = "mailto:" + encodeURIComponent(email) + "?subject=" + subject + "&body=" + body;
-
-        window.location.href = mailtoLink;
-
-        setTimeout(function() {
-            emailBtn.textContent = "\u2705 Opened!";
-            emailBtn.classList.add("sent");
-            emailStatus.textContent = "Your email client should open with your results. Just hit send!";
-            emailStatus.className = "email-status success";
-
-            setTimeout(function() {
-                emailBtn.disabled = false;
-                emailBtn.innerHTML = "Send &rarr;";
-                emailBtn.classList.remove("sent");
-            }, 4000);
-        }, 500);
-    });
-
-    emailInput.addEventListener("keydown", function(e) {
-        if (e.key === "Enter") {
-            emailBtn.click();
-        }
     });
 
     // ========== KEYBOARD NAVIGATION ==========
