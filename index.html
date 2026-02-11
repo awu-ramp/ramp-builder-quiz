@@ -1,11 +1,7 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramp Match Quiz</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ramp Match Quiz</title>
@@ -815,13 +811,6 @@
       }
     }
     </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-WKH0PGHVXH');
-</script>
 </head>
 <body>
     <!-- Theme Toggle -->
@@ -1281,10 +1270,9 @@ var questions = [
         runnerUpDiv.innerHTML =
             "<h3>Runner-up: " + runnerUp.emoji + " " + runnerUp.name + "</h3>" +
             "<p>" + runnerUp.tagline + "</p>";
-        renderStepDots();
-        renderScoreBreakdown();
-        // Track quiz completion
-     if (typeof gtag === "function") {
+    
+  // Track quiz completion
+        if (typeof gtag === "function") {
             gtag("event", "quiz_completed", {
                 event_category: "quiz",
                 event_label: top.name,
@@ -1303,6 +1291,7 @@ var questions = [
         renderStepDots();
         renderScoreBreakdown();
         showScreen(resultsScreen);
+    }
 
     // ========== BUILD RESULTS TEXT ==========
     function buildResultsText() {
