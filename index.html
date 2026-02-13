@@ -992,93 +992,105 @@ body {
     // ========== QUESTIONS ==========
 var questions = [
         {
-            text: "Welcome to Ramp! It\u2019s Day 1. What\u2019s the first thing you do?",
+          var questions = [
+        {
+            text: "Welcome to Ramp! It\u2019s Day 1. What are you most curious about?",
             answers: [
-                { text: "Pull up the analytics dashboard and look for patterns", archetype: "productHacker" },
-                { text: "Trace how data flows through the core backend systems", archetype: "moneyArchitect" },
-                { text: "Shadow a user session to see where people get confused", archetype: "experienceCrafter" },
-                { text: "Map out every third-party service and how they connect", archetype: "connectorBuilder" }
+                { text: "How users actually experience the product day-to-day", archetype: "experienceCrafter" },
+                { text: "What the biggest bottleneck in the engineering workflow is", archetype: "systemsSculptor" },
+                { text: "Which numbers the company tracks to know if it\u2019s winning", archetype: "productHacker" },
+                { text: "How all the different tools and systems fit together", archetype: "connectorBuilder" },
+                { text: "What the most complex backend system looks like under the hood", archetype: "moneyArchitect" }
             ]
         },
         {
             text: "Week 2. Your manager says: \"Pick any starter project.\" You grab:",
             answers: [
-                { text: "Automating a repetitive task that ops runs hundreds of times a day", archetype: "workflowAutomator" },
-                { text: "Fixing a flaky test suite that\u2019s slowing the whole team down", archetype: "systemsSculptor" },
-                { text: "Building a detection rule for a weird pattern you noticed", archetype: "riskDetective" },
-                { text: "Joining a call with an enterprise customer to scope their setup", archetype: "fieldEngineer" }
+                { text: "A repetitive process that feels like it should be automated", archetype: "workflowAutomator" },
+                { text: "Something a customer specifically asked for", archetype: "fieldEngineer" },
+                { text: "A weird data pattern that nobody\u2019s looked into yet", archetype: "riskDetective" },
+                { text: "A feature that\u2019s almost great but the UX feels off", archetype: "experienceCrafter" },
+                { text: "A tool that could save every engineer 30 minutes a day", archetype: "systemsSculptor" }
             ]
         },
         {
-            text: "Month 1. You\u2019re settling in. What\u2019s become your guilty pleasure?",
+            text: "Month 1. You\u2019re settling in. What do you find yourself doing in free moments?",
             answers: [
-                { text: "Watching real-time dashboards as key metrics climb", archetype: "productHacker" },
-                { text: "Digging into a complex data consistency bug across services", archetype: "moneyArchitect" },
-                { text: "Making a clunky UI feel effortless after a redesign", archetype: "experienceCrafter" },
-                { text: "Connecting two systems that have never talked to each other", archetype: "connectorBuilder" }
+                { text: "Reading about how the core systems handle edge cases", archetype: "moneyArchitect" },
+                { text: "Checking dashboards to see how metrics changed after a launch", archetype: "productHacker" },
+                { text: "Poking around third-party docs wondering what else could plug in", archetype: "connectorBuilder" },
+                { text: "Mapping out a workflow and thinking about how to simplify it", archetype: "workflowAutomator" },
+                { text: "Chatting with the support team to learn what customers struggle with", archetype: "fieldEngineer" }
             ]
         },
         {
             text: "Uh oh\u2014it\u2019s 2am and your phone buzzes. What gets you out of bed?",
             answers: [
-                { text: "\"The core system is dropping requests and losing data\"", archetype: "moneyArchitect" },
-                { text: "\"Our biggest customer can\u2019t go live tomorrow without a fix\"", archetype: "fieldEngineer" },
-                { text: "\"Something weird\u2014accounts are behaving abnormally\"", archetype: "riskDetective" },
-                { text: "\"The build system is broken and 200 engineers are blocked\"", archetype: "systemsSculptor" }
+                { text: "\"The system health metrics are dropping across the board\"", archetype: "moneyArchitect" },
+                { text: "\"Something unusual is happening\u2014we\u2019re seeing patterns we can\u2019t explain\"", archetype: "riskDetective" },
+                { text: "\"The dev tooling is broken and nobody can ship\"", archetype: "systemsSculptor" },
+                { text: "\"A big customer is blocked and needs help before morning\"", archetype: "fieldEngineer" },
+                { text: "\"A recent change might have broken something for users\"", archetype: "productHacker" }
             ]
         },
         {
             text: "Crisis handled \uD83D\uDCAA Your PM asks: \"What should we build next?\"",
             answers: [
-                { text: "\"There\u2019s a funnel we can fix\u2014the data is screaming at us\"", archetype: "productHacker" },
-                { text: "\"This workflow has 6 manual steps\u2014let\u2019s automate 5 of them\"", archetype: "workflowAutomator" },
-                { text: "\"Users are dropping off on this one screen\u2014I have ideas\"", archetype: "experienceCrafter" },
-                { text: "\"That customer keeps requesting X\u2014let me go talk to them\"", archetype: "fieldEngineer" }
+                { text: "\"There\u2019s a spot where users keep getting stuck\u2014I have ideas\"", archetype: "experienceCrafter" },
+                { text: "\"We have a bunch of manual steps that are slowing people down\"", archetype: "workflowAutomator" },
+                { text: "\"I\u2019ve been talking to someone who has needs we haven\u2019t considered\"", archetype: "fieldEngineer" },
+                { text: "\"There\u2019s a pattern in the data I want to investigate\"", archetype: "riskDetective" },
+                { text: "\"I think we can make some of our tools work together better\"", archetype: "connectorBuilder" }
             ]
         },
         {
             text: "Ramp Hacks is here! \uD83C\uDF89 You have 24 hours. What do you build?",
             answers: [
-                { text: "An adapter that connects any two APIs automatically", archetype: "connectorBuilder" },
-                { text: "A bot that turns Slack messages into automated workflows", archetype: "workflowAutomator" },
-                { text: "A system that spots anomalies across all activity in real time", archetype: "riskDetective" },
-                { text: "A dev tool that makes deploys 10x faster for every engineer", archetype: "systemsSculptor" }
+                { text: "Something that makes a tedious task disappear completely", archetype: "workflowAutomator" },
+                { text: "A tool that helps every engineer on the team work faster", archetype: "systemsSculptor" },
+                { text: "A quick experiment to test a theory about user behavior", archetype: "productHacker" },
+                { text: "Something that catches problems automatically before anyone notices", archetype: "riskDetective" },
+                { text: "A way to pull data from different places into one clean view", archetype: "connectorBuilder" }
             ]
         },
         {
             text: "Your Ramp Hacks project won! \uD83C\uDFC6 You find a magic lamp in the prize bag:",
             answers: [
-                { text: "Users never have to manually enter data ever again", archetype: "experienceCrafter" },
-                { text: "Every system in the world has a perfect, documented API", archetype: "connectorBuilder" },
-                { text: "Anomalies get flagged instantly with zero false positives", archetype: "riskDetective" },
-                { text: "An experiment engine that tells you what works overnight", archetype: "productHacker" }
+                { text: "Instantly understand what anyone needs without them explaining", archetype: "fieldEngineer" },
+                { text: "See exactly how data moves through every system in real time", archetype: "moneyArchitect" },
+                { text: "Know which ideas will work before you build them", archetype: "productHacker" },
+                { text: "Make any two tools work together perfectly with zero effort", archetype: "connectorBuilder" },
+                { text: "Spot something going wrong the moment it starts", archetype: "riskDetective" }
             ]
         },
         {
-            text: "Fast forward\u2014you\u2019re mentoring a new intern. They ask what you do:",
+            text: "Fast forward\u2014you\u2019re mentoring a new intern. They ask what you enjoy most about your work:",
             answers: [
-                { text: "\"I build the core systems that handle our most critical data\"", archetype: "moneyArchitect" },
-                { text: "\"I make it so engineers never think about infrastructure\"", archetype: "systemsSculptor" },
-                { text: "\"I fly to our biggest customers and build whatever they need\"", archetype: "fieldEngineer" },
-                { text: "\"I automate entire business processes end-to-end\"", archetype: "workflowAutomator" }
+                { text: "\"Building things that handle really critical, high-stakes operations\"", archetype: "moneyArchitect" },
+                { text: "\"Making tools that help other people do their jobs better\"", archetype: "systemsSculptor" },
+                { text: "\"Working directly with people to solve their specific problems\"", archetype: "fieldEngineer" },
+                { text: "\"Taking something messy and turning it into something clean and fast\"", archetype: "workflowAutomator" },
+                { text: "\"Making things so easy to use that people forget how hard it used to be\"", archetype: "experienceCrafter" }
             ]
         },
         {
             text: "Your one-year Rampiversary! \uD83C\uDF82 Looking back, you\u2019re proudest that:",
             answers: [
-                { text: "An integration you built directly helped close a huge deal", archetype: "connectorBuilder" },
-                { text: "Users don\u2019t even notice your feature\u2014it just works perfectly", archetype: "experienceCrafter" },
-                { text: "You turned a 4-hour manual process into a 30-second automation", archetype: "workflowAutomator" },
-                { text: "A system you built handles millions of critical operations daily", archetype: "moneyArchitect" }
+                { text: "People use something I built every day and it just works", archetype: "experienceCrafter" },
+                { text: "I connected things in a way that unlocked something new for the business", archetype: "connectorBuilder" },
+                { text: "I found and fixed a problem before it ever affected anyone", archetype: "riskDetective" },
+                { text: "Something I built handles massive scale without breaking a sweat", archetype: "moneyArchitect" },
+                { text: "I ran experiments that meaningfully moved the needle on growth", archetype: "productHacker" }
             ]
         },
         {
             text: "Year 2. You can give one superpower to your entire team:",
             answers: [
-                { text: "Instantly know which experiments are working", archetype: "productHacker" },
-                { text: "Every tool and pipeline just works, always", archetype: "systemsSculptor" },
-                { text: "Spot anything suspicious before it causes damage", archetype: "riskDetective" },
-                { text: "Adapt to whatever any customer needs, on the spot", archetype: "fieldEngineer" }
+                { text: "Always ask: \"How does this feel for the person using it?\"", archetype: "experienceCrafter" },
+                { text: "Always ask: \"What could go wrong that we\u2019re not thinking about?\"", archetype: "riskDetective" },
+                { text: "Always ask: \"Is there a way to automate this instead?\"", archetype: "workflowAutomator" },
+                { text: "Always ask: \"How do we make this reliable enough to never worry about?\"", archetype: "moneyArchitect" },
+                { text: "Always ask: \"Are we building what people actually need?\"", archetype: "fieldEngineer" }
             ]
         }
     ];
