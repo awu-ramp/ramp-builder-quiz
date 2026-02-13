@@ -720,7 +720,79 @@
       margin: 0 auto;
       line-height: 1.5;
     }
+/* Rocket Reveal Animation */
+    .rocket-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: overlayFade 2.5s ease forwards;
+    }
 
+    @keyframes overlayFade {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; pointer-events: none; }
+    }
+
+    .rocket-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .flying-rocket {
+      position: absolute;
+      font-size: 2rem;
+      animation: rocketFly 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes rocketFly {
+      0% {
+        transform: translate(0, 0) rotate(-45deg) scale(0.5);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--tx), var(--ty)) rotate(-45deg) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .drumroll-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      z-index: 1000;
+      animation: drumrollPulse 0.6s ease-in-out 3;
+      text-align: center;
+    }
+
+    @keyframes drumrollPulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+      50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+    }
+
+    .drumroll-emoji {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 12px;
+    }
     /* =====================
        RESPONSIVE
     ===================== */
@@ -1237,9 +1309,59 @@ var questions = [
     }
 
     // ========== SHOW RESULTS ==========
+   // ========== ROCKET REVEAL ANIMATION ==========
+    function createRocketOverlay() {
+        var overlay = document.createElement("div");
+        overlay.className = "rocket-overlay";
+
+        var container = document.createElement("div");
+        container.className = "rocket-container";
+
+        // Create flying rockets
+        var rocketEmojis = ["\uD83D\uDE80", "\u2728", "\uD83C\uDF1F", "\uD83D\uDCAB", "\uD83D\uDE80", "\u2728"];
+        for (var i = 0; i < 30; i++) {
+            var rocket = document.createElement("div");
+            rocket.className = "flying-rocket";
+            rocket.textContent = rocketEmojis[i % rocketEmojis.length];
+
+            // Random starting positions
+            var startX = Math.random() * 100;
+            var startY = Math.random() * 100;
+
+            // Random flight directions
+            var tx = (Math.random() - 0.5) * 600;
+            var ty = (Math.random() - 0.5) * 600;
+
+            rocket.style.left = startX + "%";
+            rocket.style.top = startY + "%";
+            rocket.style.setProperty("--tx", tx + "px");
+            rocket.style.setProperty("--ty", ty + "px");
+            rocket.style.animationDelay = (Math.random() * 1.2) + "s";
+            rocket.style.fontSize = (1.5 + Math.random() * 2) + "rem";
+
+            container.appendChild(rocket);
+        }
+
+        // Drumroll text
+        var text = document.createElement("div");
+        text.className = "drumroll-text";
+        text.innerHTML = '<span class="drumroll-emoji">\uD83D\uDE80</span>Your results are in...';
+
+        overlay.appendChild(container);
+        overlay.appendChild(text);
+        document.body.appendChild(overlay);
+
+        // Remove overlay after animation
+        setTimeout(function() {
+            if (overlay.parentNode) {
+                overlay.parentNode.removeChild(overlay);
+            }
+        }, 2800);
+    }
+
+    // ========== SHOW RESULTS ==========
     function showResults() {
         progressFill.style.width = "100%";
-        window.scrollTo({ top: 0, behavior: "smooth" });
 
         var entries = [];
         var keys = Object.keys(scores);
@@ -1267,8 +1389,8 @@ var questions = [
         runnerUpDiv.innerHTML =
             "<h3>Runner-up: " + runnerUp.emoji + " " + runnerUp.name + "</h3>" +
             "<p>" + runnerUp.tagline + "</p>";
-    
-  // Track quiz completion
+
+        // Track quiz completion
         if (typeof gtag === "function") {
             gtag("event", "quiz_completed", {
                 event_category: "quiz",
@@ -1285,10 +1407,15 @@ var questions = [
             });
         }
 
-        renderScoreBreakdown();
-        showScreen(resultsScreen);
-    }
+        // Play rocket animation, then show results
+        createRocketOverlay();
 
+        setTimeout(function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            renderScoreBreakdown();
+            showScreen(resultsScreen);
+        }, 2200);
+    }
     // ========== BUILD RESULTS TEXT ==========
     function buildResultsText() {
         var entries = [];
