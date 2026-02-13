@@ -45,7 +45,7 @@
       --icon-filter: none;
     }
 
-  [data-theme="light"] {
+    [data-theme="light"] {
       --bg: #e8e5de;
       --bg-card: #f0ede6;
       --bg-hover: rgba(0, 0, 0, 0.06);
@@ -147,13 +147,15 @@
       display: block;
       animation: screenFadeIn 0.4s ease;
     }
-#quiz.active {
+
+    #quiz.active {
       padding-top: 20px;
     }
 
     #results.active {
       padding-top: 20px;
     }
+
     @keyframes screenFadeIn {
       from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
@@ -401,14 +403,16 @@
       color: var(--text-primary);
       transform: translateX(4px);
     }
-@media (hover: none) {
-    .answer-btn:hover {
+
+    @media (hover: none) {
+      .answer-btn:hover {
         background: var(--bg-card);
         border-color: var(--border);
         color: var(--text-secondary);
         transform: none;
+      }
     }
-}
+
     .answer-btn.selected {
       background: var(--bg-selected);
       border-color: var(--border-hover);
@@ -443,7 +447,7 @@
       text-align: center;
     }
 
-   .result-emoji {
+    .result-emoji {
       font-size: 72px;
       margin-bottom: 16px;
       animation: resultPop 0.5s ease, float 3s ease-in-out 0.5s infinite;
@@ -720,7 +724,8 @@
       margin: 0 auto;
       line-height: 1.5;
     }
-/* Rocket Reveal Animation */
+
+    /* Rocket Reveal Animation */
     .rocket-overlay {
       position: fixed;
       top: 0;
@@ -793,29 +798,35 @@
       display: block;
       margin-bottom: 12px;
     }
+
     /* =====================
        RESPONSIVE
     ===================== */
-@media (max-width: 600px) {
+    @media (max-width: 600px) {
       h1 {
         font-size: 1.7rem;
       }
-body {
+
+      body {
         align-items: flex-start;
       }
+
       .question-text {
         font-size: 1.2rem;
       }
-#quiz.active {
+
+      #quiz.active {
         padding-top: 24px;
       }
 
       #results.active {
         padding-top: 12px;
       }
-.container {
+
+      .container {
         padding: 16px;
       }
+
       .answer-btn {
         padding: 18px 16px;
         font-size: 0.9rem;
@@ -931,7 +942,7 @@ body {
                 <p id="result-enjoy" class="result-enjoy"></p>
                 <div class="score-breakdown" id="score-breakdown"></div>
                 <div class="runner-up" id="runner-up"></div>
-              <div class="results-actions">
+                <div class="results-actions">
                     <button id="copy-btn" class="btn-copy">📋 Copy My Result</button>
                     <button id="retake-btn" class="btn-secondary">Retake Quiz</button>
                 </div>
@@ -947,12 +958,11 @@ body {
     var themeLabel = document.getElementById("theme-label");
     var htmlEl = document.documentElement;
 
-    // Check for saved preference or system preference
     function getPreferredTheme() {
-    var saved = localStorage.getItem("ramp-quiz-theme");
-    if (saved) return saved;
-    return "dark";
-}
+        var saved = localStorage.getItem("ramp-quiz-theme");
+        if (saved) return saved;
+        return "dark";
+    }
 
     function setTheme(theme) {
         htmlEl.setAttribute("data-theme", theme);
@@ -966,7 +976,6 @@ body {
         }
     }
 
-    // Initialize theme
     setTheme(getPreferredTheme());
 
     themeToggle.addEventListener("click", function() {
@@ -974,7 +983,6 @@ body {
         setTheme(current === "dark" ? "light" : "dark");
     });
 
-    // Listen for system theme changes
     if (window.matchMedia) {
         window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", function(e) {
             if (!localStorage.getItem("ramp-quiz-theme")) {
@@ -1061,7 +1069,7 @@ body {
     };
 
     // ========== QUESTIONS ==========
-var questions = [
+    var questions = [
         {
             text: "Welcome to Ramp! It\u2019s Day 1. What are you most curious about?",
             answers: [
@@ -1095,11 +1103,11 @@ var questions = [
         {
             text: "Uh oh\u2014it\u2019s 2am and your phone buzzes. What gets you out of bed?",
             answers: [
-                { text: "The system health metrics are dropping across the board\", archetype: "moneyArchitect" },
-                { text: "Something unusual is happening\u2014we\u2019re seeing patterns we can\u2019t explain\", archetype: "riskDetective" },
-                { text: "The dev tooling is broken and nobody can ship\", archetype: "systemsSculptor" },
-                { text: "A big customer is blocked and needs help before morning\", archetype: "fieldEngineer" },
-                { text: "A recent change might have broken something for users\", archetype: "productHacker" }
+                { text: "The system health metrics are dropping across the board", archetype: "moneyArchitect" },
+                { text: "Something unusual is happening\u2014we\u2019re seeing patterns we can\u2019t explain", archetype: "riskDetective" },
+                { text: "The dev tooling is broken and nobody can ship", archetype: "systemsSculptor" },
+                { text: "A big customer is blocked and needs help before morning", archetype: "fieldEngineer" },
+                { text: "A recent change might have broken something for users", archetype: "productHacker" }
             ]
         },
         {
@@ -1152,7 +1160,7 @@ var questions = [
                 { text: "I ran experiments that meaningfully moved the needle on growth", archetype: "productHacker" }
             ]
         },
-     {
+        {
             text: "Year 2. You can give one superpower to your entire team:",
             answers: [
                 { text: "Instantly know how something feels for the person using it", archetype: "experienceCrafter" },
@@ -1163,6 +1171,7 @@ var questions = [
             ]
         }
     ];
+
     // ========== STATE ==========
     var currentQuestion = 0;
     var scores = {};
@@ -1308,8 +1317,7 @@ var questions = [
         }
     }
 
-    // ========== SHOW RESULTS ==========
-   // ========== ROCKET REVEAL ANIMATION ==========
+    // ========== ROCKET REVEAL ANIMATION ==========
     function createRocketOverlay() {
         var overlay = document.createElement("div");
         overlay.className = "rocket-overlay";
@@ -1317,18 +1325,14 @@ var questions = [
         var container = document.createElement("div");
         container.className = "rocket-container";
 
-        // Create flying rockets
         var rocketEmojis = ["\uD83D\uDE80", "\u2728", "\uD83C\uDF1F", "\uD83D\uDCAB", "\uD83D\uDE80", "\u2728"];
         for (var i = 0; i < 30; i++) {
             var rocket = document.createElement("div");
             rocket.className = "flying-rocket";
             rocket.textContent = rocketEmojis[i % rocketEmojis.length];
 
-            // Random starting positions
             var startX = Math.random() * 100;
             var startY = Math.random() * 100;
-
-            // Random flight directions
             var tx = (Math.random() - 0.5) * 600;
             var ty = (Math.random() - 0.5) * 600;
 
@@ -1342,7 +1346,6 @@ var questions = [
             container.appendChild(rocket);
         }
 
-        // Drumroll text
         var text = document.createElement("div");
         text.className = "drumroll-text";
         text.innerHTML = '<span class="drumroll-emoji">\uD83D\uDE80</span>Your results are in...';
@@ -1351,7 +1354,6 @@ var questions = [
         overlay.appendChild(text);
         document.body.appendChild(overlay);
 
-        // Remove overlay after animation
         setTimeout(function() {
             if (overlay.parentNode) {
                 overlay.parentNode.removeChild(overlay);
@@ -1390,7 +1392,6 @@ var questions = [
             "<h3>Runner-up: " + runnerUp.emoji + " " + runnerUp.name + "</h3>" +
             "<p>" + runnerUp.tagline + "</p>";
 
-        // Track quiz completion
         if (typeof gtag === "function") {
             gtag("event", "quiz_completed", {
                 event_category: "quiz",
@@ -1407,7 +1408,6 @@ var questions = [
             });
         }
 
-        // Play rocket animation, then show results
         createRocketOverlay();
 
         setTimeout(function() {
@@ -1416,6 +1416,7 @@ var questions = [
             showScreen(resultsScreen);
         }, 2200);
     }
+
     // ========== BUILD RESULTS TEXT ==========
     function buildResultsText() {
         var entries = [];
@@ -1448,8 +1449,8 @@ var questions = [
 
     // ========== COPY RESULTS ==========
     copyBtn.addEventListener("click", function() {
-    var text = "I took the Ramp Builder quiz!\n\n" + buildResultsText();
-        
+        var text = "I took the Ramp Builder quiz!\n\n" + buildResultsText();
+
         navigator.clipboard.writeText(text).then(function() {
             copyBtn.textContent = "\u2705 Copied!";
             copyBtn.classList.add("copied");
